@@ -3,7 +3,7 @@ $(document).ready(function(){
         autoplay: true,
         dots: false,
         infinite: false,
-        speed: 300,
+        speed: 900,
         slidesToShow: 5,
         slidesToScroll: 3,
         infinite: true,
@@ -39,9 +39,10 @@ $(document).ready(function(){
     });
 
     $('.workwith-logo').slick({
+        autoplay: true,
         dots: false,
         infinite: false,
-        speed: 300,
+        speed: 500,
         slidesToShow: 7,
         slidesToScroll: 3,
         infinite: true,
@@ -75,3 +76,37 @@ $(document).ready(function(){
         ],
     });
 });
+
+$(document).on('click', '.dropdown-menu', function (e) {
+    e.stopPropagation();
+});
+
+// make it as accordion for smaller screens
+if ($(window).width() < 992) {
+    $('.dropdown-menu a').click(function(e){
+        e.preventDefault();
+        if($(this).next('.submenu').length){
+            $(this).next('.submenu').toggle();
+        }
+        if($(this).prev('dropdown-item')&&$(this).parent().parent().attr("data-level") == "3" ){
+            $(this).parent().parent().toggle('show');
+        }
+
+        $('.dropdown').on('hide.bs.dropdown', function () {
+            $(this).find('.submenu').hide();
+        })
+    });
+}
+
+let burgerMenu = document.querySelector('.navbar-toggler');
+    burgerMenu.addEventListener('click', function() {
+
+        let bars = document.querySelector('.navbar-toggler-icon i');
+
+        if(bars.getAttribute('class') == 'fas fa-bars'){
+            bars.setAttribute('class', 'fas fa-times');
+        }else{
+            bars.setAttribute('class', 'fas fa-bars');
+        }
+    })
+
