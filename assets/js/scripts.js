@@ -77,19 +77,28 @@ $(document).ready(function(){
     });
 });
 
-$(document).on('click', '.dropdown-menu', function (e) {
-    e.stopPropagation();
-});
+if ($(window).width() < 992){
+    $(document).on('click', '.dropdown-menu', function (e) {
+        e.stopPropagation();
+    });
+}else{
+    $(document).on('mouseOver', '.dropdown-menu', function (e) {
+        e.stopPropagation();
+    });
+}
 
 // make it as accordion for smaller screens
+
 if ($(window).width() < 992) {
     $('.dropdown-menu a').click(function(e){
         e.preventDefault();
+
         if($(this).next('.submenu').length){
             $(this).next('.submenu').toggle();
         }
-        if($(this).prev('dropdown-item')&&$(this).parent().parent().attr("data-level") == "3" ){
-            $(this).parent().parent().toggle('show');
+
+        if($(this).parent().parent().attr("data-level") ){
+            $(this).parent().parent().toggle()
         }
 
         $('.dropdown').on('hide.bs.dropdown', function () {
@@ -108,5 +117,4 @@ let burgerMenu = document.querySelector('.navbar-toggler');
         }else{
             bars.setAttribute('class', 'fas fa-bars');
         }
-    })
-
+})

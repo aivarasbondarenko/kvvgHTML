@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 body{
-    background-color: #E5E5E5;
+    background-color: #F9F8F7;
 }
 .container{
     max-width: 1110px ;
@@ -93,10 +93,10 @@ hr{
     padding-right: 0;
 }
 .card{
-    background-color: #E5E5E5;
+    background-color: #F9F8F7;
 }
 .card-container{
-    background-color: #E5E5E5;
+    background-color: #F9F8F7;
     margin-bottom: 30px;
 }
 .news-link{
@@ -138,7 +138,7 @@ footer.partners, .post-footer, .post-footer .card, .post-footer .card-container{
 }
 
 .footer-contacts{
-    background-color: #E5E5E5;
+    background-color: #F9F8F7;
     padding-top: 24px;
 }
 footer hr{
@@ -259,6 +259,7 @@ header #main_nav{
 .post-container .small-link:after{
     content: unset;
 }
+
 .post-container .small-link:before{
     display: inline-block;
     font-style: normal;
@@ -268,6 +269,9 @@ header #main_nav{
     font-family: "Font Awesome 5 Free";
     font-weight: 900; content: "\f053";
     padding-right: 8px;
+}
+#header .navbar-dark .navbar-nav .show > .nav-link{
+    color: #0C0C0B;
 }
 .post-container .heading{
     margin-top: 0;
@@ -301,7 +305,37 @@ header #main_nav{
 .post-container .card .my-card-title, .card .date {
     margin-bottom: 0;
 }
+footer.post-footer hr{
+    margin-bottom: 24px !important;
+}
+.dropdown-menu{
+    width: 0;
+}
+.nav-item.dropdown > .nav-link:after,.list2.dropdown > .dropdown-item:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f054";
+    right: 32px;
+    position: absolute;
+}
+.nav-item > a.nav-link.dropdown-toggle:after{
+    content: unset ;
+}
 @media (max-width: 576px) {
+    ul.navbar-nav{
+        height: 800px;
+    }
+
+    ul.dropdown-menu{
+        border-top-color: #fff;
+    }
+    header #main_nav{
+        height: 100vh;
+    }
+
+    .row2 .card-container:nth-child(n+3) {
+        display: none;
+    }
     .post-container .heading{
         margin-bottom: 24px;
     }
@@ -318,15 +352,6 @@ header #main_nav{
     .nav-item.dropdown, list2 dropdown{
         position: relative;
     }
-    .nav-item.dropdown > .nav-link:after,.list2.dropdown .dropdown-item:after{
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f054";
-
-        /*top: 25%;*/
-        right: 32px;
-        position: absolute;
-    }
 
     .goback-2{
         display: block;
@@ -335,12 +360,12 @@ header #main_nav{
         display: block;
         position: absolute;
         z-index: 520000000;
-        top: 0;
+        top: 100px;
         height: 100vh;
         width: 120%;
     }
     .nav-item, .dropdown-menu.show li{
-        border-bottom: solid 1px #EDEDEC;
+        border-bottom: solid 1px #F9F8F7;
     }
     header, footer .container,.row1 .card-container:nth-child(2), .hr-container,.link-container ,.heading,.card-container:first-child, .card-container:nth-child(5),.card-container:nth-child(2), .card-container:nth-child(6), .card-container:nth-child(3),  .card-container:nth-child(7), .card-container:nth-child(4), .card-container:nth-child(8){
         padding-left: 15px;
@@ -371,13 +396,25 @@ header #main_nav{
     header .navbar-dark .navbar-nav .nav-link:hover{
         border-bottom-color: #fff;
     }
+
     .dropdown-menu.show{
         position: absolute;
         z-index: 520000000;
-        top: 0;
-        width: 120%;
+        top: 100px;
+        width: 110%;
         height: 100vh;
         left: -5%;
+    }
+    .submenu.dropdown-menu{
+        position: absolute;
+        z-index: 520000001;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        left: 0;
+    }
+    .list2.dropdown{
+        position: unset;
     }
   .goback-2{
         border-bottom: unset ;
